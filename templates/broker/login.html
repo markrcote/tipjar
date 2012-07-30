@@ -1,0 +1,105 @@
+{% extends "broker/base.html" %}
+{% load url from future %}
+
+{% block scripts %}
+<script src="{{ STATIC_URL }}scripts/login.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="description" class="panel ui-corner-all">
+  <h2>Welcome to tipjar!</h2>
+  <p>tipjar is a simple system that enables web site operators to collect
+  donations through MintChip technology. tipjar has been designed to be as
+  easy as possible to set up and use. No server-side configuration is required
+  to have your site receive tips!</p>
+  <h3>Why use tipjar?</h3>
+  <p>In a word: <i>simplicity</i>. tipjar is simple to add to your web site,
+  and it's simple for your site's visitors to use.</p>
+  <p>Think of a busker playing music on a street corner or in a subway station.
+  You like the music, but you only hear it for a minute or two as you walk by.
+  What makes you give them any money, considering the show is free regardless?  
+  The answer is that it is extremely <i>simple</i> to take a few coins from
+  your pocket and throw them into an open case. It's not the amount that is
+  key&mdash;if you had to write a cheque for $0.50 you probably wouldn't
+  bother. Rather, it's the simplicity of giving away a little change that
+  encourages passersby to financially support the busker.</p>
+  <p>Similarly, from the busker's point of view, it's very simple to open a
+  guitar case and collect some loose change over the course of a few hours.
+  There is no complicated set up and no involved procedure for obtaining your
+  funds after the performance. You finish playing for the day, you collect your
+  tips, and you go home.</p>
+  <p>tipjar emulates the simplicity of this transaction on the Internet by
+  both making it easy to give tips and easy to collect them. It was designed
+  specifically for an average blog/web site author who doesn't necessarily
+  have any access to or knowledge about web servers. All that is required is
+  a very basic knowledge of HTML and JavaScript.</p>
+  <h3>How does it work?</h3>
+  <p>There are two parts to tipjar: a client-side script to be installed
+  in your web site, and a <i>broker</i> application, which stores your tips
+  until you deposit them to a local MintChip.</p>
+  <p>To add tipjar to your site, there are only threeo steps if you already 
+  use <a href="http://jquery.com">jQuery</a> and <a href="jqueryui.com">jQuery UI</a>:</p>
+  <ul>
+    <li>Sign up for the tipjar broker and register your MintChip ID.</li>
+    <li>Add a &lt;script&gt; tag to your site to load tipjar.</li>
+    <li>Add another &lt;script&gt; element to call the tipjar() function,
+    passing in a selector for the tipjar button, your MintChip ID, and
+    (optionally) a suggested tip amount.</li>
+  </ul>
+  <p>Visitors to your site will be able to use the tipjar button to send a
+  donation from a local MintChip, along with an optional comment. Visitors can
+  select the amount to tip or use your suggested amount. It takes only one
+  click to open the tipjar dialog and, if they go with the suggested tip,
+  merely a second click to confirm the transaction. Simple!</p>
+  <p>When you want to collect your tips, make sure the MintChip you specified
+  on your site is connected to your computer and log into the broker. You'll
+  see a list of tips awaiting deposit to your registered MintChip(s). One
+  click will deposit the tip directly to your MintChip. Voil&agrave;! Your
+  tip has been collected. Simple!</p>
+  <h3>What powers tipjar?</h3>
+  <p>As described above, the client side of the tipjar application that is
+  installed into web sites is just a single JavaScript file. This, plus the
+  MintChip browser plug-in, is all that's required to send a tip!</p>
+  <p>The MintChip broker application is written in Python using the
+  <a href="http://www.djangoproject.com">Django web framework</a> with some
+  client-side JavaScript. The REST APIs used in the AJAX functionality are
+  implemented with the
+  <a href="http://django-tastypie.readthedocs.org">Tastypie</a> Django
+  extension.</p>
+</div>
+
+<div id="login" class="panel ui-corner-all">
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+{% csrf_token %}
+<div><p><a href="{% url 'broker.views.new_user' %}">new user</a>?</p></div>
+<div>Or login to an existing account:</div>
+<div id="usercontrol">
+<table>
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+</div>
+<div id="logincontrol">
+ <input type="submit" value="login" /></td>
+</div>
+<div class="clear"></div>
+<input type="hidden" name="next" value="{% url 'broker.views.user' %}" />
+</form>
+
+</div>
+
+<div class="clear"></div>
+
+{% endblock %}

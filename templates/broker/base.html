@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>tip jar</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link type="text/css" href="{{ STATIC_URL }}style/Aristo/Aristo.css" rel="stylesheet" />
+  <link href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/css/jquery.dataTables_themeroller.css" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Oldenburg" rel="stylesheet" type="text/css" />
+  <link href="{{ STATIC_URL }}style/main.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.8.13/jquery-ui.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.1/jquery.dataTables.min.js"></script>
+  <script src="{{ STATIC_URL }}scripts/dialog.js"></script>
+  <script src="{{ STATIC_URL }}scripts/MintChip/api.js"></script>
+  <script>
+    var apiurls = {
+      mintchip: '{{ apiurl.mintchip }}',
+      user: '{{ apiurl.user }}',
+      valuemessage: '{{ apiurl.valuemessage }}'
+    };
+  </script>
+  <script src="{{ STATIC_URL }}scripts/main.js"></script>
+  <script src="{{ STATIC_URL }}scripts/dialog.js"></script>
+  <script src="{{ STATIC_URL }}scripts/chip.js"></script>
+</head>
+<body class="ui-form">
+  <div id="dialogs">
+    <div id="dialog">
+      <div class="dlgmsg"></div>
+      <div><br/></div>
+      <div class="dlgctls"></div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div id="header" class="ui-corner-bottom">
+    <div id="title">tipjar</div>
+    {% block header %}{% endblock %}
+    <div class="clear"></div>
+  </div>
+
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

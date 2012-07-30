@@ -1,0 +1,72 @@
+{% extends "broker/base.html" %}
+
+{% block scripts %}
+<script src="{{ STATIC_URL }}scripts/chip.js"></script>
+<script src="{{ STATIC_URL }}scripts/user.js"></script>
+{% endblock %}
+
+{% block header %}
+<div id="helpdialog" class="ui-helper-hidden">
+<p>Welcome to the tipjar broker!</p>
+<p>The broker stores all your tips and lets you deposit them to a local
+MintChip with a single click. You can also see a log of past tips.</p>
+<p>Make sure that you have the MintChip browser plug-in installed and your
+MintChip inserted. You should see the ID of your connected MintChip in the
+top right of the page. If it isn't there, or if you got an error when you
+logged in, ensure that your Chip is properly inserted and refresh the page or
+restart your browser.</p>
+<p>The first thing you should do when you register a tipjar broker account is
+add a MintChip ID. This is required to protect your privacy&mdash;only the
+user with the registered MintChip ID can see tips sent to that MintChip.
+Just click the "Add" link at the bottom of the "mintchips" table. The ID of
+your connected MintChip will be added to the table. If you accidentally
+registered the wrong MintChip, just click the X button beside it. You can
+register more than one MintChip ID in case you administer several sites and
+want to collect tips separately.</p>
+<p>When someone sends you a tip, it will appear in the "new tips" table. You
+will be able to see the time at which the tip was sent, the destination
+MintChip ID (in case you registered more than one), the amount in dollars,
+and the user comment, if they provided one. To deposit the tip, just click the
+$ button. The tip will immediately be transferred to your MintChip. Make
+sure you have the right MintChip inserted, or you will get an "Invalid message"
+error, since a tip can only be collected by the MintChip to which it was
+addressed.</p>
+<p>After your tip is successfully added to your MintChip, the tip information
+will be moved to the "deposited tips" table. You can't take any action with
+these tips; the information is just presented as a record, so you can track
+how your site is doing!</p>
+</div>
+
+<div id="userdetails">
+  <div id="auth">
+    {{ user.username }} <a href="{% url logout %}">logout</a> <a id="helpbtn" href="#">help!</a>
+  </div>
+  <div id="loadedmintchip"><br/><b>mint chip</b>: <span id="loadedmintchipid">detecting...</span></div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="#newtips" class="panel ui-corner-all">
+    <h2>new tips</h2>
+    <table id="newtiptable" class="display" border="0" cellspacing="0" cellpadding="0">
+    </table>
+    <div style="clear:both"></div>
+</div>
+
+<div id="#oldtips" class="panel ui-corner-all">
+    <h2>deposited tips</h2>
+    <table id="oldtiptable" class="display" border="0" cellspacing="0" cellpadding="0">
+    </table>
+    <div style="clear:both"></div>
+</div>
+
+<div id="#mintchips" class="panel ui-corner-all">
+    <h2>mintchips</h2>
+    <table id="chipidtable" class="display" border="0" cellspacing="0" cellpadding="0">
+    </table>
+    <div style="clear:both"></div>
+    <p><a href="#" onclick="addChipId('{{ user_url }}')">Add</a> a new MintChip ID.</p>
+</div>
+
+<object id="mintChipApiPlugin" type="application/x-mintchipplugin" width="0" height="0"><param name="onload" value="onMintChipPluginLoaded" /></object>
+{% endblock %}

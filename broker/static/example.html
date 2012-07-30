@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>tipjar example</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <style>
+  #tipbtn {
+    float: right;
+  }
+
+  #tipjaramt {
+    width: 3em;
+  }
+
+  #tipjarcmt {
+    width: 10em;
+  }
+
+  #tipjarbtn {
+    cursor: pointer;
+  }
+  </style>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.17/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="scripts/tipjar.js"></script>
+  <script>
+	$(document).ready(function () {
+        tipjar($("#tipbtn"), 'YOUR_MINTCHIP_ID', 0.05);
+    });
+  </script>
+</head>
+<body>
+  <div id="tipbtn"></div>
+  <div>
+    <h2>example tipjar-enabled site</h2>
+    <p>If you find this page helpful, feel free to leave me a tip by clicking
+    on the tipjar icon on the top right!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis risus sit amet magna rhoncus tincidunt. Pellentesque laoreet tempus turpis, eget gravida nisi ultricies ut. Donec feugiat dui non ligula convallis ac lobortis enim elementum. Curabitur tempus, neque dictum sollicitudin pulvinar, turpis arcu laoreet lorem, dapibus fermentum odio risus non lectus. Fusce commodo, nunc ut rutrum tincidunt, erat neque pulvinar enim, a blandit magna erat quis augue. Ut justo turpis, feugiat non ultrices at, pretium tincidunt justo. Proin suscipit imperdiet lacinia. Phasellus euismod sapien ut dolor scelerisque non varius nulla interdum.</p>
+
+    <p>Curabitur fermentum arcu orci, id feugiat risus. Maecenas tellus nulla, iaculis eget egestas in, bibendum sit amet turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla luctus mauris et risus commodo vestibulum pretium nibh consequat. Phasellus imperdiet ullamcorper augue, nec viverra odio commodo at. Etiam et tellus arcu, viverra congue urna. Morbi sit amet eros orci, id fermentum neque.</p>
+
+    <p>Quisque pellentesque purus eget velit facilisis et tempor urna venenatis. Nullam feugiat mollis lectus, at ornare tellus imperdiet sed. Fusce non nibh vehicula ligula congue sagittis. Ut neque nulla, dapibus eu vehicula id, ornare a nisi. Etiam pulvinar tortor erat. Vestibulum bibendum neque eget felis venenatis molestie luctus eget lorem. Cras sed pulvinar felis.</p>
+
+    <p>Suspendisse malesuada ullamcorper consequat. Aliquam augue ipsum, ornare vitae blandit nec, facilisis id odio. In a bibendum lacus. Sed nibh augue, porta in vestibulum sit amet, mollis eu tortor. In cursus augue dignissim tellus pretium imperdiet. Ut viverra dui ut diam placerat rhoncus. Pellentesque faucibus risus a risus egestas nec mollis justo facilisis. Donec eleifend urna eget tortor hendrerit sollicitudin.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #93ac85;
+  font: 92.5% Cambria, Georgia, serif;
+}
+
+#content a:link {
+  text-decoration: none;
+  color: #285744;
+  font-weight: bold;
+}
+
+#content a:hover {
+  text-decoration: underline;
+  color: #285744;
+  font-weight: bold;
+}
+
+#content a:visited {
+  text-decoration: underline;
+  color: #285744;
+}
+
+#content a:active {
+  text-decoration: underline;
+  color: #285744;
+}
+
+#dialog {
+  font: 85% Cambria, Georgia, serif;
+}
+
+#header {
+  margin: 0;
+  padding: 10px;
+  background: #285744;
+  color: black;
+}
+
+#header a:link, a:visited, a:hover, a:active {
+  color: white;
+}
+
+#title {
+  float: left;
+  font-family: 'Oldenburg', cursive;
+  font-size: 32pt;
+}
+
+#userdetails {
+  float: right;
+  color: #93ac85;
+}
+
+#content {
+  margin: 0;
+  padding: 10px;
+  color: black;
+  background: #93ac85;
+  position: relative;
+}
+
+#description {
+  width: 600px;
+}
+
+#login {
+  position: absolute;
+  top: 10px;
+  left: 640px;
+}
+
+#logincontrols {
+  float: left;
+}
+
+#usercontrol {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.panel {
+  background: white;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+}
+
+.panel h2 {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+table.dataTable tr.odd {
+  background-color: #d9bfbe;
+}
+
+table.dataTable tr.even {
+  background-color: #e1ddbb;
+}
+
+table.dataTable tr.odd td.sorting_1 {
+  background-color: #bfa1a5;
+}
+
+table.dataTable tr.even td.sorting_1 {
+  background-color: #e5c59e;
+}
+
+#dialog .dlgctls {
+  float: right;
+}
+
+table {
+  width: 100%;
+}
