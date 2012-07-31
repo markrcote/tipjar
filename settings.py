@@ -96,7 +96,7 @@ MIDDLEWARE_CLASSES = (
     'middleware.xssharing.XsSharing'
 )
 
-ROOT_URLCONF = 'tipjar.urls'
+ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
