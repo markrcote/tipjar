@@ -6,7 +6,15 @@
 {% endblock %}
 
 {% block header %}
-<div id="helpdialog" class="ui-helper-hidden">
+<div id="userdetails">
+  <div id="auth">
+    {{ user.username }} <a href="{% url logout %}">logout</a> <a id="helpbtn" href="#">help!</a></div>
+  <div id="loadedmintchip"><br/><b>mint chip</b>: <span id="loadedmintchipid">detecting...</span></div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="helpdialog" class="dialog ui-helper-hidden">
 <p>Welcome to the tipjar broker!</p>
 <p>The broker stores all your tips and lets you deposit them to a local
 MintChip with a single click. You can also see a log of past tips.</p>
@@ -23,6 +31,19 @@ your connected MintChip will be added to the table. If you accidentally
 registered the wrong MintChip, just click the X button beside it. You can
 register more than one MintChip ID in case you administer several sites and
 want to collect tips separately.</p>
+<p>Now you should add the tipjar script to your site so that people can
+leave tips for you. Make sure you have <a href="jquery.com">jQuery</a> and 
+<a href="jqueryui.com">jQuery UI</a> installed on your site first. Then
+simply include {{ STATIC_URL }}scripts/tipjar.js in a script element,
+add an element to be used as a button or link to leave you a tip (feel free
+to use {{ STATIC_URL }}images/tipjar.png), and insert the JavaScript
+call "tipjar(selector, mintchip_id, suggested_tip);" in another script
+element. The first parameter should be a jQuery selector to the tip element,
+e.g. $('#tipjarbtn'); the second should be the ID of the MintChip to which
+you want to deposit your tips, and the third is the amount that is displayed
+by default in the tip dialog. This last parameter is optional and defaults
+to $1.00. Take a look at the source of the simple <a href="{{ STATIC_URL }}example.html">example</a> to see it in practice (you'll need to replace the fake
+MintChip ID with your own).</p>
 <p>When someone sends you a tip, it will appear in the "new tips" table. You
 will be able to see the time at which the tip was sent, the destination
 MintChip ID (in case you registered more than one), the amount in dollars,
@@ -37,15 +58,6 @@ these tips; the information is just presented as a record, so you can track
 how your site is doing!</p>
 </div>
 
-<div id="userdetails">
-  <div id="auth">
-    {{ user.username }} <a href="{% url logout %}">logout</a> <a id="helpbtn" href="#">help!</a>
-  </div>
-  <div id="loadedmintchip"><br/><b>mint chip</b>: <span id="loadedmintchipid">detecting...</span></div>
-</div>
-{% endblock %}
-
-{% block content %}
 <div id="#newtips" class="panel ui-corner-all">
     <h2>new tips</h2>
     <table id="newtiptable" class="display" border="0" cellspacing="0" cellpadding="0">

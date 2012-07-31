@@ -5,29 +5,29 @@ body {
   font: 92.5% Cambria, Georgia, serif;
 }
 
-#content a:link {
+.dialog a:link,#content a:link {
   text-decoration: none;
   color: #285744;
   font-weight: bold;
 }
 
-#content a:hover {
+.dialog a:hover,#content a:hover {
   text-decoration: underline;
   color: #285744;
   font-weight: bold;
 }
 
-#content a:visited {
+.dialog a:visited,#content a:visited {
   text-decoration: underline;
   color: #285744;
 }
 
-#content a:active {
+.dialog a:active,#content a:active {
   text-decoration: underline;
   color: #285744;
 }
 
-#dialog {
+.dialog {
   font: 85% Cambria, Georgia, serif;
 }
 

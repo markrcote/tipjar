@@ -157,7 +157,7 @@ main = function() {
   $('#helpdialog').dialog({
     autoOpen: false,
     title: 'tipjar broker help',
-    width: 600
+    width: 800
   });
   $('#helpdialog .closebtn').click(function() {
     $('#helpdialog').dialog('close');
