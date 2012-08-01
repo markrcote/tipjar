@@ -34,15 +34,15 @@ want to collect tips separately.</p>
 <p>Now you should add the tipjar script to your site so that people can
 leave tips for you. Make sure you have <a href="jquery.com">jQuery</a> and 
 <a href="jqueryui.com">jQuery UI</a> installed on your site first. Then
-simply include {{ STATIC_URL }}scripts/tipjar.js in a script element,
+simply include http://mrcote.info/tipjar/tipjar.js in a script element,
 add an element to be used as a button or link to leave you a tip (feel free
-to use {{ STATIC_URL }}images/tipjar.png), and insert the JavaScript
+to use http://mrcote.info/tipjar/tipjar.png), and insert the JavaScript
 call "tipjar(selector, mintchip_id, suggested_tip);" in another script
 element. The first parameter should be a jQuery selector to the tip element,
 e.g. $('#tipjarbtn'); the second should be the ID of the MintChip to which
 you want to deposit your tips, and the third is the amount that is displayed
 by default in the tip dialog. This last parameter is optional and defaults
-to $1.00. Take a look at the source of the simple <a href="{{ STATIC_URL }}example.html">example</a> to see it in practice (you'll need to replace the fake
+to $1.00. Take a look at the source of the simple <a href="http://mrcote.info/tipjar/example.html">example</a> to see it in practice (you'll need to replace the fake
 MintChip ID with your own).</p>
 <p>When someone sends you a tip, it will appear in the "new tips" table. You
 will be able to see the time at which the tip was sent, the destination
