@@ -29,7 +29,7 @@ def index(request):
 def user(request):
     if not (request and hasattr(request, 'user') and
             request.user.is_authenticated()):
-        return HttpResponseRedirect('login')
+        return HttpResponseRedirect(reverse('login'))
     return render_to_response('broker/user.html',
                               { 'apiurl': {
                                   'mintchip': reverse('api_dispatch_list',
